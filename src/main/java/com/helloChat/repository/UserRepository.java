@@ -1,12 +1,11 @@
 package com.helloChat.repository;
 
 import com.helloChat.entity.User;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface UserRepository extends MongoRepository<User, ObjectId> {
+public interface UserRepository extends MongoRepository<User, String> {
     User findByEmail(String email);
 }
