@@ -23,4 +23,14 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
+
+    public boolean resetPassword(User user) {
+        User savedUser = userRepository.findByEmail(user.getEmail());
+        if (savedUser != null) {
+            savedUser.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepository.save(savedUser);
+            return true;
+        }
+        return false;
+    }
 }
