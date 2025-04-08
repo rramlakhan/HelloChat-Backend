@@ -51,4 +51,10 @@ public class AuthController {
             return new ResponseEntity<>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+    @PostMapping("/reset-password")
+    public boolean resetPassword(@RequestBody User user) {
+        return userService.resetPassword(user);
+    }
+
 }
